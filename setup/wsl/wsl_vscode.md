@@ -1,4 +1,4 @@
-# ✅ WSLでVS Codeと連携するまでの手順まとめ
+# WSL でVS Codeと連携するまでの手順まとめ
 
 ## 1.VS Codeをインストール（Windows 側で実行）
 https://code.visualstudio.com/ からインストール。  

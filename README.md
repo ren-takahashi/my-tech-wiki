@@ -16,6 +16,7 @@
 | ディレクトリ | 説明 | インデックス |
 | --- | --- | --- |
 | setup/ | 開発環境・ツール設定（VSCode、Dockerなど） | [setup/](./setup/index.md) |
+| github/ | GitHubの使い方や設定 | [github/](./github/index.md) |
 | fundamentals/ | ネットワークやOSの基礎 | [fundamentals/](./fundamentals/index.md) |
 | programming/ | プログラミング言語ごと | [programming/](./programming/index.md) |
 | security/ | 認証・暗号・脆弱性など | [security/](./security/index.md) |
