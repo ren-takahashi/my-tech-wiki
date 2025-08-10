@@ -20,6 +20,10 @@ wsl --install
 > - Ubuntu はコミュニティが活発でドキュメントも豊富。
 > - WSL2 との互換性も高い。
 > - Ubuntu はデフォルトで WSL2 をサポートしている。
+ 
+インストールがうまくいかない場合:
+BIOS/UEFIで仮想化機能が有効になっているか確認する。
+ここには詳しく書かないので、必要に応じて調べる。
 
 ---
 
@@ -45,13 +49,14 @@ WSL1 は、現在のマシン構成ではサポートされていません。
 
 ```powershell
 Create a default Unix user account: accountName #アカウント名を入力する
-New password: #パスワードを入力する
-Retype new password: #パスワードを再入力する
+New password: #passwordを入力する
+Retype new password: #passwordを再入力する
 passwd: password updated successfully
 ```
 
-これで Linux 側のユーザーが作成される（Windowsとは別）  
-accountとパスワードは忘れないようにどこかにメモしておく。
+Linux 側のユーザーが作成される（Windowsとは別）  
+accountNameとpasswordは忘れないようにどこかにメモしておく。
+> 💡 WSL2のLinuxは「別のコンピューター」のようなもので、そこにログインするためのpasswordが必要
 
 ---
 
@@ -77,7 +82,7 @@ takahashiren@rt-laptop:/mnt/c/Users/username$ exit
 ```
 
 > 💡 `/mnt/c/` 以下は Windows の `C:\` ドライブを指します。  
-mntディレクトリは、windowsのドライブをマウントするためのディレクトリ。  
+mntディレクトリは、Windowsのドライブをマウントするためのディレクトリ。  
 基本的にはマウントのディレクトリは使用しないようにする。  
 理由は、WSLのファイルシステムと Windowsのファイルシステムは異なるため、パフォーマンスや互換性の問題が発生する可能性があるため。
 
@@ -90,9 +95,27 @@ mntディレクトリは、windowsのドライブをマウントするための�
 wsl ~
 
 # ログイン後、以下のように表示される
+# takahashirenはwslのアカウント名で、rt-laptopはWindowsのホスト名（PCの名前）
 takahashiren@rt-laptop:~$
 ```
-> 💡 takahashirenはwslのアカウント名で、rt-laptopはWindowsのホスト名（PCの名前）
+> 💡 ホームディレクトリ配下で作業する（Linuxファイルシステムを使う）
 
 ---
 これで WSL2 + Ubuntu のベース環境が構築完了。
+
+---
+
+## 補足
+### パフォーマンス最適化
+WSL2のメモリ使用量を設定ファイル（.wslconfig）で制限できる。
+
+#### 設定手順
+1. Windowsの「ユーザーフォルダ」（C:\Users\[ユーザー名]）に移動
+2. .wslconfig という名前のファイルを作成
+3. 以下の内容を記載：
+```
+[wsl2]
+memory=4GB          # メモリを4GBに制限
+processors=2        # CPUコア数を2つに制限
+swap=2GB           # スワップファイルを2GBに設定
+```
