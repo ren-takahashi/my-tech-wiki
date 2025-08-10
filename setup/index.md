@@ -5,13 +5,13 @@
  WSL |  |
  --- | --- |
  WSL（WSL2 + Ubuntu）のインストール手順 | [wsl_install.md](./wsl/wsl_install.md) |
- WSLとVSCodeの連携手順 | [wsl_vscode.md](./wsl/wsl_vscode.md) |
+ WSL と VS Code の連携手順 | [wsl_vscode.md](./wsl/wsl_vscode.md) |
 
 Docker |  |
  --- | --- |
-DockerをCLIで使用するための設定手順 | [docker_cli.md](./docker_cli.md) |
+Docker を CLI で使用するための設定手順 | [docker_cli.md](./docker_cli.md) |
 
 VS Code |  |
  --- | --- |
-VS Codeの基本設定やおすすめ拡張機能、設定同期など | 未着手 |
+VS Code の基本設定やおすすめ拡張機能、設定同期など | 未着手 |
 必要に応じて項目を追加していく。

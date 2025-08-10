@@ -2,7 +2,7 @@
 
 ## 🎯 目的
 
-何かしらの設定手順や技術用語、知識を整理するための自分用のWiki。</br>
+何かしらの設定手順や技術用語、知識を整理するための自分用の Wiki。</br>
 調べたけどわけわからん事も少なくないので自分なりに噛み砕いた表現で記載する。
 
 
@@ -15,9 +15,9 @@
 
 | ディレクトリ | 説明 | インデックス |
 | --- | --- | --- |
-| setup/ | 開発環境・ツール設定（VSCode、Dockerなど） | [setup/](./setup/index.md) |
-| github/ | GitHubの使い方や設定 | [github/](./github/index.md) |
-| fundamentals/ | ネットワークやOSの基礎 | [fundamentals/](./fundamentals/index.md) |
+| setup/ | 開発環境・ツール設定（VS Code、Docker など） | [setup/](./setup/index.md) |
+| github/ | GitHub の使い方や設定 | [github/](./github/index.md) |
+| fundamentals/ | ネットワークや OS の基礎 | [fundamentals/](./fundamentals/index.md) |
 | programming/ | プログラミング言語ごと | [programming/](./programming/index.md) |
 | security/ | 認証・暗号・脆弱性など | [security/](./security/index.md) |
 | glossary/ | 用語の簡易説明集 | [glossary/](./glossary/index.md) |
