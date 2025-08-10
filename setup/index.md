@@ -13,5 +13,5 @@ DockerをCLIで使用するための設定手順 | [docker_cli.md](./docker_cli.
 
 VS Code |  |
  --- | --- |
-VS Codeの基本設定やおすすめ拡張機能、設定同期など | [vscode.md](./vscode.md) |
+VS Codeの基本設定やおすすめ拡張機能、設定同期など | 未着手 |
 必要に応じて項目を追加していく。
