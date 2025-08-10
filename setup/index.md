@@ -9,7 +9,7 @@
 
 Docker |  |
  --- | --- |
-Docker を CLI で使用するための設定手順 | [docker_cli.md](./docker_cli.md) |
+Docker を CLI で使用するための設定手順 | [docker_cli.md](./docker/docker_cli.md) |
 
 VS Code |  |
  --- | --- |
