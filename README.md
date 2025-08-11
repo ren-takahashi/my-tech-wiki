@@ -24,4 +24,4 @@
 | ネットワークや OS の基礎 | [fundamentals/](./fundamentals/index.md) |
 | 認証・暗号・脆弱性など | [security/](./security/index.md) |
 | 用語の簡易説明集 | [glossary/](./glossary/index.md) |
-| 雑多なメモ、一時保存 | [notes/](./notes/index.md) |
+| 雑多なメモ、現場での学び | [notes/](./notes/index.md) |

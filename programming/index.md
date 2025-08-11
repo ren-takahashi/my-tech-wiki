@@ -1,7 +1,32 @@
-# Programming Index
+# プログラミング言語
 
-プログラミング言語（主要言語）のまとめ。
+## プログラミングパラダイムの基礎知識
 
+プログラミング言語を理解する上で、「プログラミングパラダイム（プログラムの枠組み）」について整理。
+「命令型プログラミング」「宣言型プログラミング」の上位概念があり、その下に細かいパラダイムが存在する。
+
+### 命令型プログラミング
+「**どうやるか**」を詳細に記述するアプローチ。手順を明確に指定してコンピュータに実行させる。
+
+| パラダイム | 特徴 | 代表的な言語 |
+| --- | --- | --- |
+| **手続型プログラミング** | プログラムを手順（手続き）の集合として記述。<br>上から下へ順番に実行される。 | C、Pascal、COBOL |
+| **オブジェクト指向プログラミング** | データと操作を「オブジェクト」として組み合わせて記述。<br>再利用性と保守性に優れる。 | Java、C#、Python、JavaScript |
+
+### 宣言型プログラミング
+「**何をしたいか**」を記述し、「どうやるか」の詳細は処理系に委ねるアプローチ。
+
+| パラダイム | 特徴 | 代表的な言語 |
+| --- | --- | --- |
+| **関数型プログラミング** | 計算を数学的な関数の組み合わせとして記述。<br>副作用を避け、不変性を重視。 | Haskell、F#、Clojure、Scala |
+| **論理プログラミング** | 論理と推論に基づいてプログラムを記述。<br>事実と規則を定義し、結果を導出。 | Prolog |
+| **その他の宣言的手法** | 「何をしたいか」を記述し、「どうやるか」は処理系に任せる。 | SQL、HTML、CSS |
+
+
+
+>💡: 多くの現代言語は複数のパラダイムをサポートする「マルチパラダイム言語」です。
+
+## プログラミング言語（主要言語）の一覧
 <table style="border-collapse: collapse; width: 100%; margin: 20px 0; background-color: #2d3748; color: #e2e8f0;">
   <thead>
     <tr style="background-color: #4a5568;">
@@ -89,6 +114,25 @@
     </tr>
     <tr style="background-color: #1a202c;">
       <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top;">
+        <strong style="color: #63b3ed;">F#<br><span style="font-size: 0.8em;">(ｴﾌｼｬｰﾌﾟ)</span></strong>
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; color: #cbd5e0;">
+        関数型・<br>.NET開発
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; line-height: 1.5; color: #e2e8f0;">
+        <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #4a5568;">
+          <strong style="color: #9ca3af; font-size: 0.9em;">概要</strong><br>
+          Microsoft開発の関数型プログラミング言語。.NETエコシステムで動作する。<br>
+          数学的な記述力と型安全性を重視し、簡潔なコードが書ける。
+        </div>
+        <div>
+          <strong style="color: #9ca3af; font-size: 0.9em;">できること</strong><br>
+          金融システム、データ分析、機械学習、Webアプリケーション。関数型プログラミングの特性により、並行処理や複雑な計算処理を安全に記述可能。
+        </div>
+      </td>
+    </tr>
+    <tr style="background-color: #1E293F;">
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top;">
         <strong style="color: #63b3ed;">C++<br><span style="font-size: 0.8em;">(ｼｰﾌﾟﾗｽﾌﾟﾗｽ)</span></strong>
       </td>
       <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; color: #cbd5e0;">
@@ -126,6 +170,25 @@
       </td>
     </tr>
     <tr style="background-color: #1a202c;">
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top;">
+        <strong style="color: #63b3ed;">Assembly<br><span style="font-size: 0.8em;">(ｱｾﾝﾌﾞﾘ)</span></strong>
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; color: #cbd5e0;">
+        低レベル・<br>ハードウェア制御
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; line-height: 1.5; color: #e2e8f0;">
+        <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #4a5568;">
+          <strong style="color: #9ca3af; font-size: 0.9em;">概要</strong><br>
+          CPU命令を直接記述する最も低レベルな言語。機械語にほぼ直接対応。<br>
+          ハードウェアの動作を最も細かいレベルで制御できる。
+        </div>
+        <div>
+          <strong style="color: #9ca3af; font-size: 0.9em;">できること</strong><br>
+          OS開発、デバイスドライバ、組み込みシステム、リアルタイム処理、パフォーマンスクリティカルな処理の最適化。メモリやCPUレジスタを直接操作。
+        </div>
+      </td>
+    </tr>
+    <tr style="background-color: #1E293F;">
       <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top;">
         <strong style="color: #63b3ed;">Go<br><span style="font-size: 0.8em;">(ｺﾞｰ)</span></strong>
       </td>
@@ -299,6 +362,44 @@
     </tr>
     <tr style="background-color: #1E293F;">
       <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top;">
+        <strong style="color: #63b3ed;">Clojure<br><span style="font-size: 0.8em;">(ｸﾛｰｼﾞｬｰ)</span></strong>
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; color: #cbd5e0;">
+        関数型・<br>Lisp系言語
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; line-height: 1.5; color: #e2e8f0;">
+        <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #4a5568;">
+          <strong style="color: #9ca3af; font-size: 0.9em;">概要</strong><br>
+          JVM上で動作するLisp系の関数型プログラミング言語。<br>
+          不変データ構造と並行プログラミングに優れ、シンプルで強力な表現力を持つ。
+        </div>
+        <div>
+          <strong style="color: #9ca3af; font-size: 0.9em;">できること</strong><br>
+          Webアプリケーション、データ分析、並行処理システム、金融システム。関数型プログラミングの特性により、複雑なデータ変換や状態管理を安全に実装。
+        </div>
+      </td>
+    </tr>
+    <tr style="background-color: #1a202c;">
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top;">
+        <strong style="color: #63b3ed;">Prolog<br><span style="font-size: 0.8em;">(ﾌﾟﾛﾛｸﾞ)</span></strong>
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; color: #cbd5e0;">
+        論理プログラミング・<br>AI・推論
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; line-height: 1.5; color: #e2e8f0;">
+        <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #4a5568;">
+          <strong style="color: #9ca3af; font-size: 0.9em;">概要</strong><br>
+          論理プログラミングの代表的な言語。事実と規則を定義し、論理的推論によって答えを導出。<br>
+          「何をするか」ではなく「何が真か」を記述する宣言的プログラミング。
+        </div>
+        <div>
+          <strong style="color: #9ca3af; font-size: 0.9em;">できること</strong><br>
+          エキスパートシステム、自然言語処理、知識ベースシステム、推論エンジン、パズル解決。AIや機械学習の初期研究で重要な役割を果たした。
+        </div>
+      </td>
+    </tr>
+    <tr style="background-color: #1E293F;">
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top;">
         <strong style="color: #63b3ed;">Dart<br><span style="font-size: 0.8em;">(ﾀﾞｰﾄ)</span></strong>
       </td>
       <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; color: #cbd5e0;">
@@ -337,6 +438,25 @@
     </tr>
     <tr style="background-color: #1E293F;">
       <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top;">
+        <strong style="color: #63b3ed;">Fortran<br><span style="font-size: 0.8em;">(ﾌｫｰﾄﾗﾝ)</span></strong>
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; color: #cbd5e0;">
+        科学技術計算・<br>高性能計算
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; line-height: 1.5; color: #e2e8f0;">
+        <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #4a5568;">
+          <strong style="color: #9ca3af; font-size: 0.9em;">概要</strong><br>
+          1957年開発の歴史ある科学技術計算言語。高性能数値計算に特化。<br>
+          現在でもスーパーコンピュータや科学計算分野で重要な地位を占める。
+        </div>
+        <div>
+          <strong style="color: #9ca3af; font-size: 0.9em;">できること</strong><br>
+          気象予測、核シミュレーション、天体物理学計算、構造解析、流体力学計算。配列計算と並列処理に最適化されており、大規模科学計算で高いパフォーマンスを発揮。
+        </div>
+      </td>
+    </tr>
+    <tr style="background-color: #1a202c;">
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top;">
         <strong style="color: #63b3ed;">SQL<br><span style="font-size: 0.8em;">(ｴｽｷｭｰｴﾙ)</span></strong>
       </td>
       <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; color: #cbd5e0;">
@@ -351,6 +471,44 @@
         <div>
           <strong style="color: #9ca3af; font-size: 0.9em;">できること</strong><br>
           データの検索・挿入・更新・削除、テーブル設計、パフォーマンス最適化、レポート作成。<br>MySQL、PostgreSQL、SQL Server等で共通して使用。
+        </div>
+      </td>
+    </tr>
+    <tr style="background-color: #1E293F;">
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top;">
+        <strong style="color: #63b3ed;">COBOL<br><span style="font-size: 0.8em;">(ｺﾎﾞﾙ)</span></strong>
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; color: #cbd5e0;">
+        基幹業務・<br>レガシーシステム
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; line-height: 1.5; color: #e2e8f0;">
+        <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #4a5568;">
+          <strong style="color: #9ca3af; font-size: 0.9em;">概要</strong><br>
+          1959年開発の業務処理に特化した言語。英語に近い記述が可能。<br>
+          銀行、保険、政府機関などの基幹システムで現在も広く使用されている。
+        </div>
+        <div>
+          <strong style="color: #9ca3af; font-size: 0.9em;">できること</strong><br>
+          銀行システム、保険業務、給与計算、在庫管理、会計システム。大量のデータ処理と高い信頼性が求められる基幹業務システムの開発・保守。
+        </div>
+      </td>
+    </tr>
+    <tr style="background-color: #1a202c;">
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top;">
+        <strong style="color: #63b3ed;">Pascal<br><span style="font-size: 0.8em;">(ﾊﾟｽｶﾙ)</span></strong>
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; color: #cbd5e0;">
+        教育・<br>構造化プログラミング
+      </td>
+      <td style="padding: 12px 15px; border: 1px solid #718096; vertical-align: top; line-height: 1.5; color: #e2e8f0;">
+        <div style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #4a5568;">
+          <strong style="color: #9ca3af; font-size: 0.9em;">概要</strong><br>
+          1970年代開発の構造化プログラミング言語。教育目的で設計され、読みやすく理解しやすい。<br>
+          プログラミングの基本概念を学ぶのに適している。
+        </div>
+        <div>
+          <strong style="color: #9ca3af; font-size: 0.9em;">できること</strong><br>
+          システムプログラミング、教育用プログラム、デスクトップアプリケーション。Delphi（Object Pascal）として現在でも業務アプリケーション開発で使用されている。
         </div>
       </td>
     </tr>
