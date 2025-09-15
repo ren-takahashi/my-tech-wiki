@@ -140,6 +140,14 @@ Androidなどの一部スマートフォンもLinuxカーネルを利用して�
 
 ---
 
+### cron（クーロン）
+Linuxに標準で組み込まれているシステムツールで、定期実行管理することができる。<br>
+指定した時間に自動でコマンドやプログラムを実行（コマンド、スクリプト、プログラム（バッチ処理含む））。<br>
+基本的にはCLI（コマンドラインインターフェース）を通じて設定する。<br>
+Windows環境だとタスクスケジューラーが同様の機能を提供する。<br>
+
+---
+
 ### オーバーヘッド
 本来の処理に付随して発生する追加のコスト（処理時間やメモリ使用など）。<br>
 機能を追加したり安全性を高めるとオーバーヘッドが増えることがある。<br>
@@ -185,6 +193,39 @@ Node.jsはJavaScriptをサーバーサイドで動かす実行環境で、外部
 
 メリット： 単純に処理性能を上げやすく、アプリ側の設計変更が少ない場合がある。<br>
 注意点： 物理的・インスタンスの上限があり、スケールアウトほど柔軟でない。ダウンタイムが発生する可能性がある。
+
+---
+
+### DevOps（デブオプス）
+Development（開発）とOperations（運用）を組み合わせた造語。<br>
+開発チームと運用チームの協力を促進する管理体制・文化・手法の総称。<br>
+特定のサービスやツールではなく、組織運営の考え方や哲学を指す。<br>
+
+**従来の問題:** 開発と運用が分離されていて、コミュニケーション不足や対立が発生。<br>
+**DevOpsの解決策:** チーム間の壁を取り払い、共通目標に向けて協力する文化を醸成。<br>
+
+**実践例:** CI/CD（自動テスト・自動デプロイ）、監視・フィードバック、アジャイル開発<br>
+**関連ツール:** Azure DevOps、Jenkins、Docker、Kubernetesなど（ツール自体がDevOpsではない）<br>
+
+---
+
+### クラウドサービスの4層構造（IaaS、PaaS、SaaS、IPaaS）
+クラウドサービスを「どこまでクラウド事業者が管理してくれるか」で分類した構造。<br>
+下層ほど利用者の管理範囲が広く、上層ほどクラウド事業者が多くを管理してくれる。<br>
+
+**IaaS（Infrastructure as a Service）:** 仮想的なハードウェアを提供。仮想サーバー（VM）、仮想ネットワークなど。<br>
+例: Azure Virtual Machines、AWS EC2、Azure Virtual Network<br>
+
+**PaaS（Platform as a Service）:** アプリケーション実行環境を提供。OSやミドルウェアは管理不要。<br>
+例: Azure App Service、Azure Container Apps、AWS Lambda<br>
+
+**SaaS（Software as a Service）:** 完成したソフトウェアをそのまま利用。<br>
+例: Microsoft 365、Gmail、Salesforce<br>
+
+**IPaaS（Integration Platform as a Service）:** システム間連携を簡単にするツールを提供。<br>
+例: Azure Logic Apps、AWS Step Functions<br>
+
+<div style="height:50px;"></div>
 
 <div style="height:50px;"></div>
 
