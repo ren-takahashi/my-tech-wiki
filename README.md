@@ -19,6 +19,4 @@
 | プログラミング言語 | [programming/](./programming/index.md) |
 | 技術基盤・概念 | [tech-basics/](./tech-basics/index.md) |
 | セキュリティ | [security/](./security/index.md) |
-
-## 個人的なやつ
-| 現場での学びテキトーメモ | [notes/](./notes/index.md) |
+| ビジネス基礎知識など | [business-basics/](./business-basics/index.md) |
