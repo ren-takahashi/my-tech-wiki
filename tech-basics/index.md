@@ -11,7 +11,7 @@
 TCP、SSH、LAN、IPアドレス、NAT、PAT、Internet Gateway、ファイアウォール、FTP、SFTP、DMZ など
 
 ### [アーキテクチャ・設計](architecture/)
-スケールアウト/イン、スケールアップ/ダウン、フェイルオーバー、クラスタ構成、DevOps、UAT環境、クラウドサービス（IaaS/PaaS/SaaS/IPaaS） など
+スケールアウト/イン、スケールアップ/ダウン、フェイルオーバー、クラスタ構成、DevOps、UAT環境、クラウドサービス（IaaS/PaaS/SaaS/IPaaS）、設計原則（SOLID、DRY、YAGNI、KISS、冪等性）、アーキテクチャパターン など
 
 ### [データベース関連](database/)
 正規化、トランザクション、インデックス最適化 など
