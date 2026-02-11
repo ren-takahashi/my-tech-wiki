@@ -54,3 +54,9 @@ ACID特性（原子性・一貫性・独立性・永続性）を理解するこ�
 - EXPLAIN（実行計画）でインデックスが使われているか確認<br>
 
 [インデックス最適化の詳細ページ（種類、張り方、EXPLAIN、実務tips）](index_optimization.md)
+
+---
+
+### 基本SQL集
+SELECT、JOIN、集計、INSERT/UPDATE/DELETEなど、基本的なSQL文をコピペできる形でまとめ。<br>
+[基本SQL集](basic_sql.md)
