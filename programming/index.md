@@ -51,7 +51,8 @@
         </div>
         <div>
           <strong style="color: #9ca3af; font-size: 0.9em;">できること</strong><br>
-          ページに動きをつける、ボタンクリック処理、フォームバリデーション、API通信、SPA(Single Page Application)作成。<br>Node.jsではサーバーアプリケーション、デスクトップアプリまで開発可能。
+          ページに動きをつける、ボタンクリック処理、フォームバリデーション、API通信、SPA(Single Page Application)作成。<br>Node.jsではサーバーアプリケーション、デスクトップアプリまで開発可能。<br><br>
+          <a href="js_history.md" style="color: #63b3ed;">JavaScriptの進化の歴史</a>
         </div>
       </td>
     </tr>
@@ -317,7 +318,8 @@
         </div>
         <div>
           <strong style="color: #9ca3af; font-size: 0.9em;">できること</strong><br>
-          大規模Webアプリケーション、React/Angular/Vue.jsアプリ、Node.js サーバー開発。<br>型チェックによりバグを早期発見し、チーム開発で威力を発揮。
+          大規模Webアプリケーション、React/Angular/Vue.jsアプリ、Node.js サーバー開発。<br>型チェックによりバグを早期発見し、チーム開発で威力を発揮。<br><br>
+          <a href="typescript.md" style="color: #63b3ed;">TypeScriptの詳細ページ</a>
         </div>
       </td>
     </tr>
