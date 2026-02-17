@@ -19,7 +19,8 @@ GitHubで新しいリポジトリを作成し、ローカルで作業を開始�
 - **Initialize this repository with**:
   - ✅ **Add a README file**: チェック推奨（リポジトリの説明ファイル）
   - ✅ **Add .gitignore**: 必要に応じて選択（言語/フレームワークのテンプレート）
-  - ✅ **Choose a license**: 必要に応じて選択（MIT、Apache等）
+  - ✅ **Choose a license**: ライセンス。必要に応じて選択（MIT、Apache等）。  
+  　※ 学習用なら基本的にno license(不要)でOK。
 
 ### 1-3. リポジトリ作成
 - 「Create repository」ボタンをクリック
