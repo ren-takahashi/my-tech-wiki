@@ -99,6 +99,41 @@ Androidなどの一部スマートフォンもLinuxカーネルを利用して�
 
 ---
 
+### WSL（Windows Subsystem for Linux / ダブリューエスエル）
+Windows上でLinuxを動かすための仕組み。<br>
+Windowsを使いながら、Linuxのコマンドや開発環境をそのまま利用できる。<br>
+
+**背景:**<br>
+Web開発やクラウド環境のほとんどがLinux前提で動いている。<br>
+そのため、Windows環境で開発する場合、Linux環境が必要になることが多い。<br>
+以前は仮想マシン（VirtualBox等）を使っていたが、WSLなら軽量で簡単にLinuxが使える。<br>
+
+**WSL 1 と WSL 2 の違い:**<br>
+
+| 項目 | WSL 1 | WSL 2 |
+|------|-------|-------|
+| **仕組み** | Linuxシステムコールを変換 | 軽量な仮想マシン（実際のLinuxカーネル） |
+| **速度** | ファイルシステムが遅い | ファイル操作が高速 |
+| **互換性** | 一部のLinux機能が動かない | ほぼ完全なLinux互換 |
+| **推奨** | 現在はWSL 2が推奨 | ✅ 現在の標準 |
+
+**WSLでできること:**<br>
+- Linuxのコマンド（ls, grep, curlなど）をWindowsで使う<br>
+- LinuxベースのWeb開発環境を構築（Node.js, Python, PHP, Dockerなど）<br>
+- VS CodeからWSL上のプロジェクトを開いて開発<br>
+- Windowsのファイルシステムにアクセス（/mnt/c/ などからCドライブが見える）<br>
+
+**実務での使い方:**<br>
+開発者はWSLでUbuntuなどをインストールし、Linux環境で開発を行う。<br>
+エディタ（VS Code）はWindows上で動かし、実行環境はWSL（Linux）という使い分けが一般的。<br>
+
+**補足:**<br>
+macOSユーザーはWSLが不要。macOS自体がUNIXベースなので、標準でLinux互換のコマンドが使える。<br>
+
+セットアップ手順は [setup/wsl/](../../setup/wsl/) を参照。<br>
+
+---
+
 ### Linuxディストリビューション
 Linuxカーネル（OS の核となる部分）に様々なソフトウェアを組み合わせて作られた「完成品OS」。<br>
 Windows・macOSは一社が完成品として提供するが、Linuxはオープンソースのため各社・コミュニティが独自の完成品を作成。<br>
