@@ -47,11 +47,9 @@ cd my-new-project
 ## 3. 初回コミット
 
 ### 3-1. ファイルを作成・編集
+何かしらのファイルを作成・編集（例: `README.md` にプロジェクトの説明を書く）。
+
 ```bash
-# 例: 新しいファイルを作成
-echo "# My New Project" > README.md
-echo "console.log('Hello, World!');" > index.js
-```
 
 ### 3-2. Git状態を確認
 ```bash
@@ -65,7 +63,7 @@ git status
 git add .
 
 # または特定のファイルだけ追加
-git add README.md index.js
+git add { ファイル名 }
 ```
 
 ### 3-4. コミット
