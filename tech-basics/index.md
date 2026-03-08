@@ -5,7 +5,7 @@
 ## カテゴリ一覧
 
 ### [OS・システム](os-system/)
-カーネル、UNIX、Linux、Linuxディストリビューション、cron、オーバーヘッド など
+カーネル、UNIX、Linux、WSL、Linuxディストリビューション、シンボリックリンク、cron、Vim、オーバーヘッド、ソフトウェアバージョン など
 
 ### [ネットワーク・インフラ基盤](network/)
 TCP、SSH、LAN、IPアドレス、NAT、PAT、Internet Gateway、ファイアウォール、FTP、SFTP、DMZ など
