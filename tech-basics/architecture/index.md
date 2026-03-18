@@ -510,3 +510,193 @@ GoF（Gang of Four：4人組）が定義した**23種類のオブジェクト指
 **学習の順番:**<br>
 初心者はまず「シングルトン」「ファクトリー」「オブザーバー」「ストラテジー」あたりから学ぶと実用的。<br>
 すべてを暗記する必要はなく、必要に応じて調べて使えば良い。<br>
+
+---
+
+### アトミックデザイン（Atomic Design）
+UIコンポーネントを階層的に設計する手法。<br>
+化学の「原子（Atom）→ 分子（Molecule）→ 生物（Organism）」という考え方を、UI設計に応用したもの。<br>
+React、Vue、Angularなどコンポーネントベースのフレームワークで広く使われる。<br>
+
+**提唱者:** Brad Frost（2013年）<br>
+
+**5つのレベル:**<br>
+```
+Pages（ページ）
+  ↑
+Templates（テンプレート）
+  ↑
+Organisms（生物）
+  ↑
+Molecules（分子）
+  ↑
+Atoms（原子）
+```
+
+**各レベルの詳細:**<br>
+
+**1. Atoms（原子）- 最小単位**<br>
+これ以上分解できない最小のUIパーツ。<br>
+```
+例:
+- Button（ボタン）
+- Input（入力欄）
+- Label（ラベル）
+- Icon（アイコン）
+- Text（テキスト）
+```
+
+**2. Molecules（分子）- 原子の組み合わせ**<br>
+複数のAtomsを組み合わせた、意味のある小さなUIグループ。<br>
+```
+例:
+- SearchBox = Input + Button
+- FormField = Label + Input + ErrorMessage
+- IconButton = Icon + Button
+```
+
+**3. Organisms（生物）- 分子の組み合わせ**<br>
+MoleculesやAtomsを組み合わせた、独立した機能を持つUIブロック。<br>
+```
+例:
+- Header = Logo + Navigation + SearchBox
+- ProductCard = Image + Title + Price + Button
+- CommentList = CommentItem[] （複数のMolecule）
+```
+
+**4. Templates（テンプレート）- ページの骨組み**<br>
+Organismsを配置した、ページのレイアウト構造（データは入っていない）。<br>
+```
+例:
+- ProductPageTemplate = Header + ProductCard + Footer
+- DashboardTemplate = Sidebar + MainContent + RightPanel
+```
+
+**5. Pages（ページ）- 実際のページ**<br>
+Templateに実際のデータを入れた、完成したページ。<br>
+```
+例:
+- ProductPage（商品ID=123のデータを表示）
+- UserDashboard（ユーザーID=456のデータを表示）
+```
+
+**Reactでの実装例（ディレクトリ構成）:**<br>
+```
+src/
+  components/
+    atoms/
+      Button.tsx
+      Input.tsx
+      Label.tsx
+      Icon.tsx
+    molecules/
+      SearchBox.tsx
+      FormField.tsx
+      IconButton.tsx
+    organisms/
+      Header.tsx
+      ProductCard.tsx
+      CommentList.tsx
+    templates/
+      ProductPageTemplate.tsx
+      DashboardTemplate.tsx
+  pages/
+    ProductPage.tsx
+    DashboardPage.tsx
+```
+
+**具体的なコード例（React）:**<br>
+```tsx
+// atoms/Button.tsx
+export const Button = ({ children, onClick }) => (
+  <button onClick={onClick}>{children}</button>
+);
+
+// molecules/SearchBox.tsx
+import { Input } from '../atoms/Input';
+import { Button } from '../atoms/Button';
+
+export const SearchBox = ({ onSearch }) => (
+  <div>
+    <Input placeholder="検索..." />
+    <Button onClick={onSearch}>検索</Button>
+  </div>
+);
+
+// organisms/Header.tsx
+import { Logo } from '../atoms/Logo';
+import { Navigation } from '../molecules/Navigation';
+import { SearchBox } from '../molecules/SearchBox';
+
+export const Header = () => (
+  <header>
+    <Logo />
+    <Navigation />
+    <SearchBox />
+  </header>
+);
+
+// pages/HomePage.tsx
+import { Header } from '../organisms/Header';
+import { ProductList } from '../organisms/ProductList';
+
+export const HomePage = () => (
+  <div>
+    <Header />
+    <ProductList />
+  </div>
+);
+```
+
+**アトミックデザインのメリット:**<br>
+- **再利用性が高い**: 小さなコンポーネントを組み合わせて使える<br>
+- **一貫性のあるUI**: 同じButtonやInputを全体で使うため、デザインが統一される<br>
+- **保守性が高い**: Buttonを修正すれば、全ページに反映される<br>
+- **チーム開発しやすい**: コンポーネントの役割が明確<br>
+- **テストしやすい**: 小さな単位でテストできる<br>
+
+**アトミックデザインのデメリット・注意点:**<br>
+- **分類に迷う**: 「これはMoleculeか？Organismか？」と判断が難しい場合がある<br>
+- **過度な分割**: 小さすぎるコンポーネントを作りすぎると、逆に複雑になる<br>
+- **厳密に守る必要はない**: あくまで指針であり、プロジェクトに合わせて柔軟に適用する<br>
+
+**実務での使われ方:**<br>
+
+**厳密派（5階層すべて使う）:**<br>
+大規模プロジェクトで、デザインシステムを構築する場合に採用。<br>
+
+**柔軟派（3〜4階層に簡略化）:**<br>
+多くのチームは、実務では以下のように簡略化している。<br>
+```
+components/
+  atoms/      （最小単位）
+  molecules/  （小さな組み合わせ）
+  organisms/  （大きなブロック）
+pages/        （ページ）
+※ Templates は省略することが多い
+```
+
+**よくある指摘例（レビューで出るパターン）:**<br>
+```
+❌ 悪い例:
+pages/ProductPage.tsx に全てのUIを書いている
+→ 再利用できない、テストしにくい
+
+✅ 良い例:
+- atoms/Button.tsx を作成
+- molecules/ProductCard.tsx で Button を使用
+- organisms/ProductList.tsx で ProductCard を使用
+- pages/ProductPage.tsx で ProductList を使用
+→ 各コンポーネントが独立し、再利用・テストしやすい
+```
+
+**補足: 他のコンポーネント分類手法との違い:**<br>
+- **PresentationalとContainer**: ロジック（状態管理）とUI（見た目）を分ける考え方<br>
+- **アトミックデザイン**: UIの大きさ・複雑さで階層化する考え方<br>
+
+両方を組み合わせて使うこともある（例: `organisms/ProductCard/ProductCard.tsx`（見た目）と `organisms/ProductCard/ProductCardContainer.tsx`（ロジック））。<br>
+
+**まとめ:**<br>
+アトミックデザインは「UIを小さな部品に分解して、組み合わせて作る」という考え方。<br>
+厳密に5階層守る必要はなく、プロジェクトに合わせて柔軟に適用するのが実務の基本。<br>
+Reactのコンポーネント設計で「どうファイル分割するか」を考える時の指針として有用。<br>
