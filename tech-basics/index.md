@@ -8,7 +8,7 @@
 カーネル、UNIX、Linux、WSL、Linuxディストリビューション、シンボリックリンク、cron、Vim、オーバーヘッド、ソフトウェアバージョン など
 
 ### [ネットワーク・インフラ基盤](network/)
-TCP、SSH、LAN、IPアドレス、NAT、PAT、Internet Gateway、ファイアウォール、FTP、SFTP、DMZ など
+TCP、SSH、LAN、VPC、IPアドレス、NAT、PAT、Internet Gateway、ロードバランサー、ファイアウォール、FTP、SFTP、DMZ、CDN など
 
 ### [アーキテクチャ・設計](architecture/)
 スケールアウト/イン、スケールアップ/ダウン、フェイルオーバー、クラスタ構成、DevOps、UAT環境、クラウドサービス（IaaS/PaaS/SaaS/IPaaS）、設計原則（SOLID、DRY、YAGNI、KISS、冪等性）、アーキテクチャパターン など
