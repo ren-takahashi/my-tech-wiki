@@ -52,7 +52,8 @@
         <div>
           <strong style="color: #9ca3af; font-size: 0.9em;">できること</strong><br>
           ページに動きをつける、ボタンクリック処理、フォームバリデーション、API通信、SPA(Single Page Application)作成。<br>Node.jsではサーバーアプリケーション、デスクトップアプリまで開発可能。<br><br>
-          <a href="js_history.md" style="color: #63b3ed;">JavaScriptの進化の歴史</a>
+          <a href="js_history.md" style="color: #63b3ed;">JavaScriptの進化の歴史</a><br>
+          <a href="js_async.md" style="color: #63b3ed;">JavaScriptの非同期処理（Promise、async/await）</a>
         </div>
       </td>
     </tr>
