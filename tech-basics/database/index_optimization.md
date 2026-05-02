@@ -497,3 +497,124 @@ OPTIMIZE TABLE users;
 
 インデックスは「クエリが遅い」問題の9割を解決する最重要テーマ。<br>
 EXPLAIN を使いこなし、適切なインデックスを設計することが実務では必須。<br>
+
+---
+
+## N+1問題
+
+### N+1問題とは
+
+**ORMを使ったアクセス時に、意図せず大量のクエリが発行されてしまうパフォーマンス問題。**<br>
+「1回の親データ取得 + N回の子データ取得 = 合計N+1回」になることが名前の由来。<br>
+
+### なぜ気づきにくいのか
+
+ORMの**遅延読み込み（Lazy Loading）**により、プロパティアクセスのように見えるコードが、実は毎回DBクエリを発行している。<br>
+
+```php
+// このコードを見て「100回クエリが走る」と気づけるか？
+$users = User::all();
+
+foreach ($users as $user) {
+    echo $user->name . ': ' . $user->posts->count() . '件';
+    // $user->posts にアクセスした瞬間にSELECT文が実行される
+}
+```
+
+**実際に実行されるSQL（ユーザーが100人の場合）:**
+```sql
+SELECT * FROM users;                           -- 1回目
+SELECT * FROM posts WHERE user_id = 1;         -- 2回目
+SELECT * FROM posts WHERE user_id = 2;         -- 3回目
+...
+SELECT * FROM posts WHERE user_id = 100;       -- 101回目
+-- 合計101回（N+1）
+```
+
+**さらに気づきにくい理由：**<br>
+- 開発環境ではデータが少なく「速い」ため問題に見えない<br>
+- コントローラーとViewが分離していると、どこでクエリが走っているか見えにくい<br>
+- ORM のマジックメソッドが内部のクエリ発行を隠蔽している<br>
+
+### 解決策：Eager Loading（事前読み込み）
+
+```php
+// ✅ with() で一括取得（Eager Loading）
+$users = User::with('posts')->get();
+
+foreach ($users as $user) {
+    echo $user->name . ': ' . $user->posts->count() . '件';
+    // 既にメモリ上にデータがあるのでDBアクセスなし
+}
+```
+
+**実行されるSQL（2回で完結）:**
+```sql
+SELECT * FROM users;                                          -- 1回目
+SELECT * FROM posts WHERE user_id IN (1, 2, 3, ..., 100);   -- 2回目のみ
+```
+
+### よくある発生パターン
+
+**一覧ページでリレーション先を表示するとき（最頻出）:**
+```php
+// ❌ 商品一覧で各商品のカテゴリ名を表示
+$products = Product::all();
+foreach ($products as $product) {
+    echo $product->category->name;  // N+1
+}
+
+// ✅ 解決
+$products = Product::with('category')->get();
+```
+
+**Bladeテンプレートで発生（コードを見ただけでは分かりにくい）:**
+```php
+// Controller（一見問題なさそう）
+$users = User::all();
+return view('users.index', compact('users'));
+
+// Bladeテンプレート（ここでN+1が発生）
+@foreach($users as $user)
+    <li>{{ $user->posts->count() }}件</li>
+@endforeach
+```
+
+**ネストしたループ（N+1のN+1になる）:**
+```php
+// ❌ カテゴリ → 商品 → レビュー
+foreach (Category::all() as $category) {
+    foreach ($category->products as $product) {   // N+1
+        echo $product->reviews->count();           // さらにN+1
+    }
+}
+
+// ✅ 解決
+Category::with('products.reviews')->get();  // ドット記法でネスト指定
+```
+
+### 検出方法
+
+| ツール | 方法 |
+|--------|------|
+| **Laravel Debugbar** | 画面下部に実行クエリ数・内容を表示。N+1を一目で発見できる |
+| **スロークエリログ** | 一定時間以上かかったクエリをログ出力 |
+| **DB::listen()** | クエリ発行のたびにログ出力（コードに仕込む） |
+
+```php
+// DB::listen() でクエリ数を確認
+DB::listen(function ($query) {
+    logger($query->sql);
+});
+```
+
+### インデックスとの関係
+
+N+1問題とインデックス不足はどちらも「クエリが遅い」原因だが、アプローチが異なる。<br>
+
+| 問題 | 原因 | 解決策 |
+|------|------|--------|
+| **N+1問題** | クエリの**本数**が多すぎる | Eager Loading で本数を減らす |
+| **インデックス不足** | 1本のクエリの**実行速度**が遅い | インデックスを追加する |
+
+両方セットで対策することが実務では重要。<br>
